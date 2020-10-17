@@ -1,10 +1,6 @@
-server:
-  port: 7001
 spring:
   profiles:
     active: dev
-  application:
-    name: com.shuyuan.judd.portal-gateway
   cloud:
     gateway:
       routes: #配置路由路径
@@ -83,6 +79,7 @@ spring:
     port: 6379
     host: 192.168.1.12
     password:
+
 secure:
   ignore:
     urls: #配置白名单路径
@@ -95,18 +92,3 @@ logging:
   level:
     root: info
     com.shuyuan.judd.portalgateway: debug
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:1111/eureka/
-    healthcheck:
-      enabled: false
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
-    #此配置建议只试用开发和测试环境
-    #心跳间隔时间,默认是30秒
-    lease-renewal-interval-in-seconds: 600
-    #最后一次心跳时间后leaseExpirationDurationInSeconds秒就认为是下线了，默认是90秒
-    lease-expiration-duration-in-seconds: 1800
