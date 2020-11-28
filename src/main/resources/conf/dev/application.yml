@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
   cloud:
     gateway:
       routes: #配置路由路径
@@ -50,7 +48,7 @@ spring:
             allow-credentials: true
             allowedOrigins:
               - "http://localhost:9527"
-              - "http://192.168.1.13"
+              - "http://192.168.1.12"
             allowedHeaders: "*"
             allowedMethods:
               - OPTIONS
